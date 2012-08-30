@@ -11,7 +11,7 @@ from django.conf import settings
 from django.core.management import BaseCommand
 from multiprocessing import Process
 from optparse import make_option
-from photon.pigman import PigMan
+from pigman import PigMan
 
 import imp
 import importlib
