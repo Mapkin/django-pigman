@@ -39,7 +39,8 @@ def _find_jobs():
     # FIXME this seems a little grody.
     jobs = []
     for m in modules:
-        mod_funcs = [inspect.getmembers(m, inspect.isfunction) for m in modules]
+        mod_funcs = [inspect.getmembers(m, inspect.isfunction)
+                     for m in modules]
         for funcs in mod_funcs:
             for fn_name, fn in funcs:
                 name = "{0}.{1}".format(m.__name__.replace('.jobs', ''),
@@ -76,7 +77,8 @@ class Command(BaseCommand):
         jobs = _find_jobs()
 
         noun = "processes" if options['num_workers'] > 1 else "process"
-        print("\nSpawning {0} worker {1}...".format(options['num_workers'], noun))
+        print("\nSpawning {0} worker {1}...".format(options['num_workers'],
+                                                    noun))
         for i in xrange(0, options['num_workers']):
             p = Process(target=run_worker,
                         args=(jobs,),
