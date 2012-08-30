@@ -40,9 +40,9 @@ setup(
     zip_safe=False,
     install_requires=install_requires,
     classifiers=[
+        'Development Status :: 4 - Beta',
         'Framework :: Django',
         'Indended Audience :: Developers',
-        'Indended Audience :: System Administrators',
         'Operating System :: Unix',
         'Topic :: Software Development'
     ],

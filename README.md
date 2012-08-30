@@ -50,7 +50,18 @@ readability purposes. E.g., if the `reverse` example above were in
 To start a worker, run `python manage.py run_workers`. It will discover and
 serve all registered jobs. To start more than one worker, use the `-w` option:
 
-    python manage.py run_workers -w 5
+    $ python manage.py run_workers -w 5
+    Searching for Gearman jobs...
+      * found frob.reverse
+
+    Spawning 5 worker processes...
+      * pid 1511 started.
+      * pid 1512 started.
+      * pid 1513 started.
+      * pid 1514 started.
+      * pid 1515 started.
+
+    Press <CTRL-C> to quit.
 
 This process remains in the foreground, so you will probably want to run it in
 a [Screen](http://www.gnu.org/software/screen/) session or as an
@@ -84,7 +95,7 @@ submit them with `pigman.PigMan.run_queued`.
     p = pigman.PigMan()
     p.queue_job('frob.reverse', 'Hello, world!')
     p.queue_job('frob.reverse', 'Mapkin rocks!')
-    p.queue_job('frob.reverse', 'Superflous!')
+    p.queue_job('frob.reverse', 'Superfluous!')
 
     # Some time later...
 
