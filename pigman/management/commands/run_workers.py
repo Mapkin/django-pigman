@@ -43,6 +43,8 @@ def _find_jobs():
                      for m in modules]
         for funcs in mod_funcs:
             for fn_name, fn in funcs:
+                if fn_name[0] == '_':
+                    continue
                 name = "{0}.{1}".format(m.__name__.replace('.jobs', ''),
                                         fn_name)
                 jobs.append((name, fn))
